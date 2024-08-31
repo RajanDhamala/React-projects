@@ -101,13 +101,15 @@ function Clock() {
 
 
           </div>
-          <div className="absolute bg-gray-200 opacity-30 h-full w-full flex justify-center items-center hidden">
-            <div className="bg--500 h-96 w-96">
-            <div className="bg-black rounded-full px-3 border-4 border-red-500">
+          <div className="absolute bg-gray-200 h-full w-full opacity-20 inset-0 flex justify-center items-center">
+            <div className="h-96 w-96 bg-red-500">
+            <div className="bg-black rounded-full px-3 border-4 border-red-500 mt-2">
               <button className=" flex text-white text-lg justify-center items-center gap-1">
                 <span className="text-green-500 text-2xl">+</span>
                 New Custom time
               </button>
+              
+             
             </div>
             </div>
 
