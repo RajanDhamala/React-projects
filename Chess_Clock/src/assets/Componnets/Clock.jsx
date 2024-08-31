@@ -101,14 +101,12 @@ function Clock() {
 
 
           </div>
-          <div className="absolute bg-gray-200 opacity-30 h-full w-full flex justify-center items-center">
+          <div className="absolute bg-gray-200 opacity-30 h-full w-full flex justify-center items-center hidden">
             <div className="bg--500 h-96 w-96">
             <div className="bg-black rounded-full px-3 border-4 border-red-500">
               <button className=" flex text-white text-lg justify-center items-center gap-1">
                 <span className="text-green-500 text-2xl">+</span>
                 New Custom time
-
-
               </button>
             </div>
             </div>
@@ -116,7 +114,7 @@ function Clock() {
           </div>
 
         <div
-          className={`bg-green-500 h-80 w-full rounded-b-md flex justify-center items-center ${
+          className={` h-80 w-full rounded-b-md flex justify-center items-center ${
             currentplayer === 2 ? "bg-green-600" : "bg-gray-300"
           }`}
           onClick={() => active(2)}
