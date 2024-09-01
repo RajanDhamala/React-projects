@@ -32,6 +32,10 @@ function Clock() {
     alert('available soon')
   }
 
+  function customtime(){
+    alert('soon available')
+  }
+
   function active(player) {
     if (currentplayer !== player || !start) {
       return;
@@ -101,19 +105,86 @@ function Clock() {
 
 
           </div>
-          <div className="absolute bg-gray-200 h-full w-full opacity-20 inset-0 flex justify-center items-center">
-            <div className="h-96 w-96 bg-red-500">
-            <div className="bg-black rounded-full px-3 border-4 border-red-500 mt-2">
-              <button className=" flex text-white text-lg justify-center items-center gap-1">
-                <span className="text-green-500 text-2xl">+</span>
-                New Custom time
-              </button>
-              
-             
-            </div>
-            </div>
+          <div className="absolute bg-gray-200 h-full w-full opacity-20 inset-0 flex flex-col justify-center items-center">
+  <div className="h-96 w-1/2 bg-white flex flex-col items-center overflow-y-auto">
+    <div className="bg-black rounded-full px-3 border-4 border-red-500 mt-2 w-60 h-10 flex justify-center items-center">
+      <button
+        className="text-white text-lg font-semibold flex items-center justify-center w-full h-full space-x-2"
+        onClick={() => customtime()}
+      >
+        <h1 className="text-green-500">➕</h1>
+        <span>New Custom Time</span>
+      </button>
+    </div>
+    <div className="w-full ml-5 mt-1">
+      <h1 className="text-start text-lg font-semibold cursor-pointer">Presents</h1>
+    </div>
+    
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio1" name="time-option" className="size-5" />
+      <label htmlFor="radio1" className="text-lg cursor-pointer">20 min 20 sec</label>
+    </div>
+    
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio2" name="time-option" className="size-5" />
+      <label htmlFor="radio2" className="text-lg cursor-pointer">10 min | 5 sec</label>
+    </div>
 
-          </div>
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio3" name="time-option" className="size-5" />
+      <label htmlFor="radio3" className="text-lg cursor-pointer">1 min</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio4" name="time-option" className="size-5" />
+      <label htmlFor="radio4" className="text-lg cursor-pointer">1 min | 1 sec</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio5" name="time-option" className="size-5" />
+      <label htmlFor="radio5" className="text-lg cursor-pointer">3 min</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio6" name="time-option" className="size-5" />
+      <label htmlFor="radio6" className="text-lg cursor-pointer">3 min | 2 sec</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio7" name="time-option" className="size-5" />
+      <label htmlFor="radio7" className="text-lg cursor-pointer">5 min</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio8" name="time-option" className="size-5" />
+      <label htmlFor="radio8" className="text-lg cursor-pointer">5 min | 5 sec</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio9" name="time-option" className="size-5" />
+      <label htmlFor="radio9" className="text-lg cursor-pointer">10 min</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio10" name="time-option" className="size-5" />
+      <label htmlFor="radio10" className="text-lg cursor-pointer">15 min | 10 sec</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio11" name="time-option" className="size-5" />
+      <label htmlFor="radio11" className="text-lg cursor-pointer">20 min</label>
+    </div>
+
+    <div className="w-full mt-2 flex flex-row-reverse justify-between px-3">
+      <input type="radio" id="radio12" name="time-option" className="size-5" />
+      <label htmlFor="radio12" className="text-lg cursor-pointer">30 min</label>
+    </div>
+    
+  </div>
+  <div className="w-full flex justify-center position sticky mt-2">
+      <button className="bg-green-500 text-white font-semibold text-3xl rounded-md w-1/2 hover:bg-green-700">Start</button>
+    </div>
+</div>
 
         <div
           className={` h-80 w-full rounded-b-md flex justify-center items-center ${
