@@ -15,6 +15,10 @@ function Clock() {
   const [customincremnt1,setcustomincrement1]=useState(null)
   const [player1count,setplayer1count]=useState(0)
   const [player2count,setplayer2count]=useState(0)
+  const [placehour,setplacehour]=useState(null)
+  const [placemin,setplacemin]=useState(null)
+  const [placesec,setplacesec]=useState(null)
+  const timehala=useRef(null)
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -47,6 +51,21 @@ function Clock() {
     setcustomtime1(Number(data.time)*60)
     setcustomincrement1(Number(data.increment))
     console.log(data.time,data.increment)
+  }
+
+  function toggelsavetime(who){
+    if (who==1){
+      setstart(false)
+      timehala.current.classList.toggle('hidden')
+      timehala.current.classList.add('rotate-180')
+    }else if(who==2){
+      setstart(false)
+      timehala.current.classList.remove('rotate-180')
+      timehala.current.classList.toggle('hidden')
+    }else{
+      return;
+    }
+    
   }
 
   function handeltimechange(){
@@ -118,6 +137,10 @@ function Clock() {
           
         >
           <span className="text-md font-semibold opacity-60 ml-5">Moves:{player1count}</span>
+          <div className="flex justify-center w-full"><button className="text-black text-2xl opacity-60" onClick={(e)=>{
+           e.stopPropagation();
+           toggelsavetime(1)
+            }}>☰</button></div>
           <div className="flex justify-center items-center h-full">
           <span className={`rotate-180 font-bold text-5xl cursor-pointer hover:scale-105 transform ease-in-out delay-75 ${currentplayer ==1 ? 'text-white' :'text-black'}` }>
             {formatTime(player1time)}
@@ -135,11 +158,11 @@ function Clock() {
   className="fixed inset-0 bg-gray-200 h-full w-full bg-opacity-30 flex flex-col justify-center items-center z-40 hidden"
   ref={custompopup}
 >
-  <div className="h-[80vh] w-11/12 md:h-[80vh] md:w-1/2 bg-white flex flex-col items-center overflow-y-auto rounded-sm">
+  <div className="h-[70vh] w-11/12 md:h-[80vh] md:w-1/2 bg-white flex flex-col items-center overflow-y-auto rounded-sm">
     <div className="flex justify-end w-full sticky top-0">
       <button className="text-lg" onClick={() => customtime()}>❎</button>
     </div>
-    <div className="bg-black rounded-full px-3 border-4 border-red-500 mt-2 w-60 h-10 flex justify-center items-center">
+    <div className="bg-black rounded-full px-3 border-2 border-red-500 mt-2 w-60 h-10 flex justify-center items-center" onClick={()=>toggelsavetime()}>
       <button
         className="text-white text-lg font-semibold flex items-center justify-center w-full h-full space-x-2"
       >
@@ -218,8 +241,6 @@ function Clock() {
     </button>
   </div>
 </div>
-
-
         <div
           className={` h-80 w-full rounded-b-md ${
             currentplayer === 2 ? "bg-green-600" : "bg-gray-300"
@@ -227,15 +248,49 @@ function Clock() {
           onClick={() => active(2)}
         >
           <span className="text-md font-semibold opacity-60 ml-5">Moves:{player2count}</span>
-          <div className="flex justify-center items-center h-full">
-          <span className={`z-10 font-bold text-5xl cursor-pointer hover:scale-105 transform ease-in-out delay-75 ${currentplayer ==2 ? 'text-white' :'text-black'}`}>
+          <div className="flex justify-evenly items-center h-full flex-col">
+
+          <span className={`z-10 font-bold text-5xl cursor-pointer hover:scale-105 mt-10 transform ease-in-out delay-75 ${currentplayer ==2 ? 'text-white' :'text-black'}`}>
             {formatTime(player2time)}
-          </span>
+          </span>          
+           <div className="flex justify-center w-full h-10">
+        <button className="text-black text-2xl opacity-60 mt-5" onClick={(e)=>{
+          e.stopPropagation()
+          toggelsavetime(2)}}>☰</button>
+        </div>
           </div>
         </div>
-        <div className="absolute">
-
+        <div className="absolute h-full w-full bg-gray-300 z-50 bg-opacity-20 flex justify-center items-center hidden" ref={timehala}>
+          <div className="bg-black h-48 rounded-md w-80">
+            <div className="mx-3 my-3">
+              <h1 className="text-white text-center font-mono">🕒 ADJUST TIME</h1>
+            </div>
+            <div className="flex justify-center flex-cols gap-1">
+         <div className="flex flex-col"> <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placehour} placeholder="00" onChange={(e)=>setplacehour(e.target.value)} max={99} min={0}/>
+         <h1 className="text-white">hour</h1>
+         </div>
+          <h1 className="text-white font-bold text-2xl">:</h1>
+          <div><input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" placeholder="00"
+          max={60} value={placemin} onChange={(e)=>setplacemin(e.target.value)} min={0} />
+          <h1 className="text-white">min</h1>
+          </div>
+          <h1 className="text-white font-bold text-2xl">:</h1>
+          <div>
+          <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placesec} max={60} onChange={(e)=>setplacesec(e.target.value)} min={0} placeholder="00"/>
+          <h1 className="text-white">sec</h1>
+          </div>
+        
+          </div>
+          <div className="w-full flex justify-evenly mt-4">
+            <div></div>
+            <div className="flex gap-2">
+            <button className="text-white text-sm active:bg-red-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>timehala.current.classList.toggle('hidden')}>CANCEL</button>
+            <button className="text-white text-sm active:bg-green-500 rounded-md px-2 py-2 font-semibold hover:scale-105">SAVE TIME</button>
+            </div>
+          </div>
+          </div>
         </div>
+        
       </div>
     </>
   );
