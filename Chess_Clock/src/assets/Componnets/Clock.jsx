@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 function Clock() {
   const [initialTime,setinitialTime] =useState(600);
   const [increment,setincrement]=useState(2);
+  const [whoclicked,setwhoclicked]=useState(null)
 
   const [player1time, setplayer1time] = useState(initialTime);
   const [player2time, setplayer2time] = useState(initialTime);
@@ -15,17 +16,26 @@ function Clock() {
   const [customincremnt1,setcustomincrement1]=useState(null)
   const [player1count,setplayer1count]=useState(0)
   const [player2count,setplayer2count]=useState(0)
-  const [placehour,setplacehour]=useState(null)
-  const [placemin,setplacemin]=useState(null)
-  const [placesec,setplacesec]=useState(null)
+  const [placehour,setplacehour]=useState()
+  const [placemin,setplacemin]=useState()
+  const [placesec,setplacesec]=useState()
   const timehala=useRef(null)
 
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
     const remainingSeconds = seconds % 60;
+
+    const formattedMinutes = remainingMinutes.toString().padStart(2, "0");
     const formattedSeconds = remainingSeconds.toString().padStart(2, "0");
-    return `${minutes}:${formattedSeconds}`;
-  }
+
+    if (hours > 0) {
+        return `${hours}:${formattedMinutes}:${formattedSeconds}`;
+    } else {
+        return `${formattedMinutes}:${formattedSeconds}`;
+    }
+}
 
   function handelreload(){
     setstart(false)
@@ -74,6 +84,37 @@ function Clock() {
     setplayer1time(customtime1)
     setplayer2time(customtime1)
     customtime()
+  }
+
+  function converttosecond(hours = 0, minutes = 0, seconds = 0) {
+    hours = hours ?? 0;
+    minutes = minutes ?? 0;
+    seconds = seconds ?? 0;
+    const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+    return totalSeconds;
+}
+  function closeafterset(){
+    timehala.current.classList.add('hidden')
+  }
+
+  function handelusersettime(){
+    console.log(timehala)
+    closeafterset()
+    if (whoclicked ==1){
+      console.log(placehour,placemin,placesec)
+      let temp=converttosecond(placehour,placemin,placesec)
+      console.log(temp)
+      setplayer1time((prev)=>(temp== null && temp==undefined) ? temp :prev)
+      
+    }else if (whoclicked ==2){
+      console.log(placehour,placemin,placesec)
+      let temp2=converttosecond(placehour,placemin,placesec)
+      console.log(temp2)
+      setplayer2time((prev)=>(temp2 !==null && temp2!==undefined) ? temp2: prev)
+
+    }else{
+      return;
+    }
   }
 
   function active(player) {
@@ -139,6 +180,7 @@ function Clock() {
           <span className="text-md font-semibold opacity-60 ml-5">Moves:{player1count}</span>
           <div className="flex justify-center w-full"><button className="text-black text-2xl opacity-60" onClick={(e)=>{
            e.stopPropagation();
+           setwhoclicked(1)
            toggelsavetime(1)
             }}>☰</button></div>
           <div className="flex justify-center items-center h-full">
@@ -256,6 +298,7 @@ function Clock() {
            <div className="flex justify-center w-full h-10">
         <button className="text-black text-2xl opacity-60 mt-5" onClick={(e)=>{
           e.stopPropagation()
+          setwhoclicked(2)
           toggelsavetime(2)}}>☰</button>
         </div>
           </div>
@@ -266,17 +309,17 @@ function Clock() {
               <h1 className="text-white text-center font-mono">🕒 ADJUST TIME</h1>
             </div>
             <div className="flex justify-center flex-cols gap-1">
-         <div className="flex flex-col"> <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placehour} placeholder="00" onChange={(e)=>setplacehour(e.target.value)} max={99} min={0}/>
+         <div className="flex flex-col"> <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placehour} placeholder="00" onChange={(e)=>setplacehour(Number(e.target.value))} max={99} min={0}/>
          <h1 className="text-white">hour</h1>
          </div>
           <h1 className="text-white font-bold text-2xl">:</h1>
           <div><input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" placeholder="00"
-          max={60} value={placemin} onChange={(e)=>setplacemin(e.target.value)} min={0} />
+          max={60} value={placemin} onChange={(e)=>setplacemin(Number(e.target.value))} min={0} />
           <h1 className="text-white">min</h1>
           </div>
           <h1 className="text-white font-bold text-2xl">:</h1>
           <div>
-          <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placesec} max={60} onChange={(e)=>setplacesec(e.target.value)} min={0} placeholder="00"/>
+          <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placesec} max={60} onChange={(e)=>setplacesec(Number(e.target.value))} min={0} placeholder="00"/>
           <h1 className="text-white">sec</h1>
           </div>
         
@@ -284,8 +327,10 @@ function Clock() {
           <div className="w-full flex justify-evenly mt-4">
             <div></div>
             <div className="flex gap-2">
-            <button className="text-white text-sm active:bg-red-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>timehala.current.classList.toggle('hidden')}>CANCEL</button>
-            <button className="text-white text-sm active:bg-green-500 rounded-md px-2 py-2 font-semibold hover:scale-105">SAVE TIME</button>
+            <button className="text-white text-sm active:bg-red-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>closeafterset}>CANCEL</button>
+            <button className="text-white text-sm active:bg-green-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>
+              handelusersettime()
+            }>SAVE TIME</button>
             </div>
           </div>
           </div>
