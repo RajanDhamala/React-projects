@@ -60,7 +60,6 @@ function Clock() {
     const data=JSON.parse(e.target.value)
     setcustomtime1(Number(data.time)*60)
     setcustomincrement1(Number(data.increment))
-    console.log(data.time,data.increment)
   }
 
   function toggelsavetime(who){
@@ -101,17 +100,12 @@ function Clock() {
     console.log(timehala)
     closeafterset()
     if (whoclicked ==1){
-      console.log(placehour,placemin,placesec)
-      let temp=converttosecond(placehour,placemin,placesec)
-      console.log(temp)
-      setplayer1time((prev)=>(temp== null && temp==undefined) ? temp :prev)
+      const temp=converttosecond(placehour,placemin,placesec)
+      setplayer1time((prev)=>(temp !== null && temp !==undefined) ? temp :prev)
       
     }else if (whoclicked ==2){
-      console.log(placehour,placemin,placesec)
-      let temp2=converttosecond(placehour,placemin,placesec)
-      console.log(temp2)
+      const temp2=converttosecond(placehour,placemin,placesec)
       setplayer2time((prev)=>(temp2 !==null && temp2!==undefined) ? temp2: prev)
-
     }else{
       return;
     }
@@ -309,7 +303,7 @@ function Clock() {
               <h1 className="text-white text-center font-mono">🕒 ADJUST TIME</h1>
             </div>
             <div className="flex justify-center flex-cols gap-1">
-         <div className="flex flex-col"> <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placehour} placeholder="00" onChange={(e)=>setplacehour(Number(e.target.value))} max={99} min={0}/>
+         <div className="flex flex-col"> <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placehour} placeholder="00" onChange={(e)=>setplacehour(Number(e.target.value))} max={99} min={0} />
          <h1 className="text-white">hour</h1>
          </div>
           <h1 className="text-white font-bold text-2xl">:</h1>
@@ -319,7 +313,7 @@ function Clock() {
           </div>
           <h1 className="text-white font-bold text-2xl">:</h1>
           <div>
-          <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placesec} max={60} onChange={(e)=>setplacesec(Number(e.target.value))} min={0} placeholder="00"/>
+          <input type="number" className="h-10 w-14 font-semibold text-2xl text-center pl-2 focus:outline-none" value={placesec} max={60} onChange={(e)=>setplacesec(Number(e.target.value))} min={0} placeholder="00" />
           <h1 className="text-white">sec</h1>
           </div>
         
@@ -327,7 +321,7 @@ function Clock() {
           <div className="w-full flex justify-evenly mt-4">
             <div></div>
             <div className="flex gap-2">
-            <button className="text-white text-sm active:bg-red-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>closeafterset}>CANCEL</button>
+            <button className="text-white text-sm active:bg-red-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>closeafterset()}>CANCEL</button>
             <button className="text-white text-sm active:bg-green-500 rounded-md px-2 py-2 font-semibold hover:scale-105" onClick={()=>
               handelusersettime()
             }>SAVE TIME</button>
