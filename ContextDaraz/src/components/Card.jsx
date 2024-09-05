@@ -1,8 +1,12 @@
 import React,{useState} from 'react'
+import Buy from './Buy'
+import CardContext from '../Context/CardContext'
 
 function Card() {
-  const [count,setcount]=useState(0)
+  const [count,setcount]=useState(1)
   return (
+    <>
+    <CardContext.Provider value={{count,setcount}}>
     <div className='h-full w-full flex justify-center '>
         <div className='bg-gray-300 w-96 mt-5 flex items-center flex-col rounded-md pb-3'>
             <div className='size-72'>
@@ -21,6 +25,11 @@ function Card() {
             </div>
         </div>
     </div>
+    <div className='flex justify-center mt-5'>
+      <Buy/>
+        </div>
+        </CardContext.Provider>
+    </>
   )
 }
 
