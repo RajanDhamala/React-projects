@@ -23,7 +23,7 @@ function Card() {
 
   return (
     <>
-      <CardContext.Provider value={{ orderPlaced }}>
+      <CardContext.Provider value={{orderPlaced}}>
         <div className='h-full w-full flex justify-center'>
           <div className='bg-gray-300 w-96 mt-5 flex items-center flex-col rounded-md pb-3 dark:bg-black'>
             <div className='flex w-full justify-end mt-2 mr-2'>
