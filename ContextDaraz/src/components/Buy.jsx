@@ -1,16 +1,16 @@
-import React, { useContext } from 'react'
-import CardContext from '../Context/CardContext'
-
-const { count }=useContext(CardContext)
+import React, { useContext } from 'react';
+import CardContext from '../Context/CardContext';
 
 function Buy() {
+  const { orderplaced } = useContext(CardContext);
+
   return (
     <>
-    <div>
-        <h1 className='text-2xl font-semibold'>You ordered placed no of mouse,keyboard{count}</h1>
-    </div>
+      <div className=''>
+        <h1 className='text-2xl text-center font-semibold'>{orderplaced =='' ?'no ordered placed':`${orderplaced} order placed of laptop and keyboard total price is ${orderplaced *885}`}</h1>
+      </div>
     </>
-  )
+  );
 }
 
-export default Buy
+export default Buy;
