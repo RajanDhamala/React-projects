@@ -33,7 +33,7 @@ function Card() {
               <img src="https://img.lazcdn.com/3rd/q/aHR0cHM6Ly9zdGF0aWMtMDEuZGFyYXouY29tLm5wL3AvNTQyMDg3YmY2YTA4MzA5ZDFhMjUwODFhMjNkNDI5MGEuanBn_400x400q75.png_.webp" alt="" className='w-full h-full' />
             </div>
             <div className='mx-5 flex flex-col'>
-              <h1 className='text-center text-1xl font-semibold dark:text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, sit?</h1>
+              <h1 className='text-center text-1xl font-semibold dark:text-white'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, repudiandae!</h1>
               <h1 className='dark:text-white'>Rs. 885</h1>
               <p className='dark:text-white'>41% off</p>
               <div className='flex justify-center gap-2'>
