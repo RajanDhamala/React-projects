@@ -14,8 +14,6 @@ function Login() {
       console.log(id,hash)
     }
 
-
-
     function handelshowhide(e){
         e.preventDefault();
         const ref=document.querySelector('.passwordhu')
