@@ -33,7 +33,7 @@ function Login() {
   return (
    <>
    <div className='flex flex-row justify-center'>
-      <img src="/final.png" alt="" className='h-[680px] w-[680px] relative inset-0 left-20 hidden lg:flex' />
+      <img src="/final2.png" alt="" className='h-[640px] w-[640px] hidden lg:flex' />
    <div>
     <div className='lg:relative lg:right-40'>
    <div className='flex flex-cols justify-center mx-5'>
@@ -86,7 +86,7 @@ function Login() {
     </div>
     </div>
     </div>
-    <div className='flex justify-center'>
+    <div className='flex justify-center mt-5'>
     <div className='grid grid-cols-5 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-10 xl:grid-cols-10 gap-4 px-20 lg:mx-auto lg:place-content-center'>
   {
     data.map((item, index) => (
