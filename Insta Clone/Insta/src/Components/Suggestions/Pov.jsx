@@ -3,7 +3,8 @@ import React from 'react';
 function Pov({username='Tinky',nickname='heidz',img='https://img.freepik.com/free-photo/selfie-portrait-videocall_23-2149186104.jpg'}) {
   return (
     <>
-    <div className="h-48 w-40 border border-gray-500">
+    <div>
+    <div className="h-48 w-40 border border-gray-300">
       <div className="flex justify-end mr-3 mt-1">
         <h1 className="text-gray-500 font-semibold cursor-pointer">✕</h1>
       </div>
@@ -19,8 +20,9 @@ function Pov({username='Tinky',nickname='heidz',img='https://img.freepik.com/fre
         <h3 className=' text-gray-500'>{nickname}</h3>
       </div>
     </div>
-    <div className='w-40 h-10 border border-gray-500 flex justify-center items-center'>
-        <button className='text-blue-500 font-semibold cursor-pointer hover:text-gray-600'>Follow</button>
+    <div className='w-40 h-10 border border-gray-300 flex justify-center items-center'>
+        <h1 className='text-blue-500 font-semibold cursor-pointer hover:text-gray-600'>Follow</h1>
+    </div>
     </div>
     </>
   );
