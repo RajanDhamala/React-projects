@@ -1,7 +1,10 @@
 import React from 'react'
 import Pov from '../Suggestions/Pov'
+import { useRef } from 'react'
 
 function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-photo/selfie-portrait-videocall_23-2149186104.jpg',followers='aroha.pooletofa10' }) {
+
+ const menu = useRef(null)
   return (
     <>
       <div>
@@ -26,12 +29,13 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
             />
           </div>
           </div>
-
           <div className='flex ml-5 w-full justify-start'>
             <div className='flex pl-2 pb-2 md:flex-row flex-col gap-2 md:gap-4'>
               <div className='flex md:gap-4'>
               <h1 className='text-2xl mr-2'>{username}</h1>  
-              <button className='font-bold text-2xl md:order-last flex justify-start' onClick={() => alert('soon available')}>...</button>
+              <button className='font-bold text-2xl md:order-last flex justify-start' onClick={(e)=>{
+                 menu.current.classList.toggle('hidden');
+              }}>...</button>
               </div>
           
               <button className='text-white font-semibold cursor-pointer order-last hover:bg-blue-600 bg-blue-500 rounded-md h-7 w-40 md:w-20'>Follow</button>
@@ -42,7 +46,7 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
           <h1 className='mt-4 font-semibold mb-2'>{username}</h1>
           <div className='flex items-center gap-1 font-semibold'>
           <p className='text-sm text-gray-700 opacity-80'>Followed by</p>
-          <p className='text-sm '>{followers}</p>
+          <p className='text-sm cursor-pointer '>{followers}</p>
           </div>
         </div>
         <div className='border-t border-gray-300 '>
@@ -76,13 +80,27 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
       <div className='mt-3'>
         <div className='flex justify-between px-5'>
           <span className=''>Suggested for you</span>
-          <span className='text-blue-500'>See all</span>
+          <span className='text-blue-500 cursor-pointer'>See all</span>
         </div>
         <div className='flex ml-2 gap-1 mt-2'>
       <Pov/>
       <Pov username='Hazel woods' nickname='hailey ups' img='https://s3-us-west-2.amazonaws.com/s.cdpn.io/55758/random-user-31.jpg' />
       <Pov username='Nicolas robin' nickname='tesla_coil' img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoq0f1tSU2b8opZaApGh5tl2FreFb52dyo6Q&s'/>
         </div>
+      </div>
+      <div ref={menu} className='absolute bg-gray-900 h-full w-full inset-0 bg-opacity-60 flex justify-center items-center hidden' onDoubleClick={(e)=>{
+        menu.current.classList.toggle('hidden')
+      }} >
+
+        <div className='flex flex-col bg-white w-96 rounded-md  py-3 divide-y divide-gray-300'>
+          <span className='text-red-500 font-semibold py-2 cursor-pointer border-b  w-full flex justify-center '>Block</span>
+          <span className='text-red-500 font-semibold py-2 cursor-pointer  flex justify-center w-full '>Restrict</span>
+          <span className='text-red-500 font-semibold py-2 cursor-pointer flex w-full justify-center'>Report</span>
+          <span className='py-2 cursor-pointer w-full flex justify-center '>Share to...</span>
+          <span className='py-2 cursor-pointer w-full flex justify-center'>About this account</span>
+          <span className='py-2 cursor-pointer w-full flex justify-center'>Cancel</span>
+        </div>
+
       </div>
     </>
   )
