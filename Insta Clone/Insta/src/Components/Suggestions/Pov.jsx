@@ -20,7 +20,7 @@ function Pov({username='Tinky',nickname='heidz',img='https://img.freepik.com/fre
       </div>
     </div>
     <div className='w-40 h-10 border border-gray-500 flex justify-center items-center'>
-        <h1 className='text-blue-500 font-semibold cursor-pointer hover:text-gray-600'>Follow</h1>
+        <button className='text-blue-500 font-semibold cursor-pointer hover:text-gray-600'>Follow</button>
     </div>
     </>
   );
