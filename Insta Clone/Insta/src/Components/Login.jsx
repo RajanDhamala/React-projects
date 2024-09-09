@@ -4,8 +4,6 @@ function Login() {
     const [username,setusername]=useState('')
     const [passwd,setpasswd]=useState('')
 
-    
-
     function storeddata(){
       localStorage.setItem('userId',username);
       localStorage.setItem('password',passwd);
@@ -26,7 +24,6 @@ function Login() {
             ref.setAttribute('type','password')
             showhidebutton.innerHTML='Show'
         }
-        
     }
     const data=['Meta','About','BlogJobs','Help','API,Privacy','Terms,Locations','Instagram Lite','Threads','Contact Uploading & Non-Users','Meta Verified']
 
