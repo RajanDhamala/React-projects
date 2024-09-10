@@ -17,22 +17,22 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
         </div>
 
       <section className='border-b-2 mt-5'>
-       <div className='flex md:justify-between  '>
-        <div className='flex md:justify-center w-full pl-3 gap-3'>
-        <div className="h-24 w-24  md:h-40 md:w-40 flex justify-start overflow-hidden rounded-full">
+       <div className='flex md:items-center flex-col md:h-52'>
+        <div className='flex md:justify-center w-full pl-3 gap-3 md:gap-5 lg:gap-10'>
+        <div className="h-24 w-24  md:h-40 md:w-40 flex justify-start overflow-hidden rounded-full ">
             <img
               src={img}
               alt="user image"
               className="object-cover w-full h-full"
             />
           </div>
-          <div className='grid grid-cols-2 md:flex md:gap-3'>
+          <div className='grid grid-cols-2 md:flex md:gap-3 gap-y-3'>
           <h1 className='text-2xl mr-2'>{username}</h1>
           <button className='font-bold text-2xl md:order-last flex justify-start col-start-2 h-7 md:block' onClick={(e)=>{
                  menu.current.classList.toggle('hidden');
               }}>...</button>
-                <button className='text-white font-semibold cursor-pointer order-last hover:bg-blue-600 bg-blue-500 rounded-md h-7 col-span-2 md:w-20 md:order-2'>Follow</button>
-                <div className='md:flex  gap-5 md:absolute md:mt-14 items-center py-3 order-last hidden'>
+                <button className='text-white font-semibold cursor-pointer order-last hover:bg-blue-600 bg-blue-500 rounded-md h-7 col-span-2 md:w-20 w-52 md:order-2'>Follow</button>
+                <div className='md:flex gap-5 md:absolute md:mt-14 items-center py-3 order-last hidden'>
             <div className='text-center'>
               <p>0</p>
               <p className='text-gray-500'>posts</p>
@@ -46,15 +46,16 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
               <p className='text-gray-500'>following</p>
             </div>
           </div>
-          <div className='ml-3 mb-4 '>
-          <h1 className='mt-4 font-semibold mb-2 sm:text-center'>{username}</h1>
-          <div className=' flex items-center gap-1 font-semibold '>
-          <p className='text-sm text-gray-700 opacity-80 sm:text-center'>Followed by</p>
-          <p className='text-sm cursor-pointer '>{followers}</p>
-          </div>
-          </div>
+          
           </div>
         </div>
+        <div className='ml-3 mb-4 items-center md:pl-36 md:absolute top-36 '>
+          <h1 className='font-semibold mb-2 '>{username}</h1>
+          <div className=' flex font-semibold flex-row w-56 gap-1 '>
+          <p className='text-sm text-gray-700 opacity-80'>Followed by</p>
+          <p className='text-sm cursor-pointer'>{followers}</p>
+          </div>
+          </div>
 
        </div>
         <div className='border-t border-gray-300 md:hidden '>
