@@ -19,7 +19,7 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
       </div>
 
       <section className='border-b-2'>
-        <div className='flex flex-row items-center md:justify-center md:items-center  gap-x-5  border-gray-400'>
+        <div className='grid grid-cols-5 place-content-center border-gray-400 sm:grid-cols-2'>
           <div className='md:w-full md:flex md:justify-end ml-3 md:ml-0'>
           <div className="h-24 w-24  md:h-40 md:w-40 flex justify-start overflow-hidden rounded-full">
             <img
@@ -41,11 +41,14 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
               <button className='text-white font-semibold cursor-pointer order-last hover:bg-blue-600 bg-blue-500 rounded-md h-7 w-40 md:w-20'>Follow</button>
             </div>
           </div>
+          <div>
+
+          </div>
         </div>
         <div className='ml-3 mb-4 '>
-          <h1 className='mt-4 font-semibold mb-2'>{username}</h1>
-          <div className='flex items-center gap-1 font-semibold'>
-          <p className='text-sm text-gray-700 opacity-80'>Followed by</p>
+          <h1 className='mt-4 font-semibold mb-2 sm:text-center'>{username}</h1>
+          <div className=' flex items-center gap-1 font-semibold bg-red-500'>
+          <p className='text-sm text-gray-700 opacity-80 sm:text-center'>Followed by</p>
           <p className='text-sm cursor-pointer '>{followers}</p>
           </div>
         </div>
@@ -68,7 +71,7 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
       </section>
       <div>
         <div className='flex justify-center'>
-          <img src="https://media.istockphoto.com/id/936681148/vector/lock-icon.jpg?s=612x612&w=0&k=20&c=_0AmWrBagdcee-KDhBUfLawC7Gh8CNPLWls73lKaNVA=" alt="" className='w-16 h-16' />
+          <img src="https://media.istockphoto.com/id/936681148/vector/lock-icon.jpg?s=612x612&w=0&k=20&c=_0AmWrBagdcee-KDhBUfLawC7Gh8CNPLWls73lKaNVA=" alt="" className='w-14 h-14' />
           <div>
           <span>This account is private</span>
           <p>Follow to see their photos and videos.</p>
@@ -82,7 +85,7 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
           <span className=''>Suggested for you</span>
           <span className='text-blue-500 cursor-pointer'>See all</span>
         </div>
-        <div className='flex ml-2 gap-1 mt-2'>
+        <div className='flex ml-2 gap-1 mt-2 justify-center'>
       <Pov/>
       <Pov username='Hazel woods' nickname='hailey ups' img='https://s3-us-west-2.amazonaws.com/s.cdpn.io/55758/random-user-31.jpg' />
       <Pov username='Nicolas robin' nickname='tesla_coil' img='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoq0f1tSU2b8opZaApGh5tl2FreFb52dyo6Q&s'/>
