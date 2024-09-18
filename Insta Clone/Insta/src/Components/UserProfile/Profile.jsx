@@ -33,15 +33,15 @@ function Profile({ username = 'niamhhendx', img = 'https://img.freepik.com/free-
               }}>...</button>
                 <button className='text-white font-semibold cursor-pointer order-last hover:bg-blue-600 bg-blue-500 rounded-md h-7 col-span-2 md:w-20 w-52 md:order-2'>Follow</button>
                 <div className='md:flex gap-5 md:absolute md:mt-14 items-center py-3 order-last hidden'>
-            <div className='text-center'>
+            <div className='text-center flex flex-row gap-2'>
               <p>0</p>
               <p className='text-gray-500'>posts</p>
             </div>
-            <div className='text-center'>
+            <div className='text-center flex flex-row gap-2'>
               <p>17</p>
               <p className='text-gray-500'>followers</p>
             </div>
-            <div className='text-center'>
+            <div className='text-center flex flex-row gap-2'>
               <p>23</p>
               <p className='text-gray-500'>following</p>
             </div>

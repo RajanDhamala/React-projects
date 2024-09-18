@@ -1,13 +1,15 @@
 import './App.css'
 import Login from './Components/Login'
-import Pov from './Components/Suggestions/pov'
 import Profile from './Components/UserProfile/Profile'
+import Feed from './Components/Feeds/Feed'
+import Storylogo from './Components/Stories/Storylogo'
+
 
 function App() {
 
   return (
     <>
-  <Profile/>
+  <Feed/>
     </>
   )
 }
