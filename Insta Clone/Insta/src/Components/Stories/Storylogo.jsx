@@ -26,7 +26,7 @@ useEffect(()=>{
             </div>
           </div>
         </div>
-        <h2 className='text-sm text-gray-700 cursor-pointer'>{username}</h2>
+        <h2 className='text-ellipsis text-sm text-gray-700 cursor-pointer'>{username}</h2>
       </div>
     </>
   );
