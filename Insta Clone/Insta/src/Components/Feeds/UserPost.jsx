@@ -14,9 +14,8 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
           const days = Math.floor(time / 86400);
           return `${days} day${days > 1 ? 's' : ''}`;
         }
-
-        const [contenttype,setcontenttype]=useState('text')
       }
+      const [contenttype,setcontenttype]=useState('video')
   return (
     <>
     <div className='flex justify-between border-t border-t-gray-500 pt-4'>
@@ -38,8 +37,12 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
         <button className='rotate-90 mr-5 font-bold text-[20px]'>⫶</button>
       </div>
       </div>
+      {contenttype =='vide' ?
+      <div className='px-1 py-2 h-[660px] overflow-hidden '>
+      <video src="vdo.mp4" autoplay loop controls className='h-full w-full'></video>
+      </div> : ''}
       <div>
-        <video src=""></video>
+        
       </div>
     </>
   )
