@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s',username='tinku_minku',time='10' }) {
+function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s',username='tinku_minku',time='10',content='video' }) {
     function convotime(time) {
         if (time < 60) {
           return `${time} sec`;
@@ -15,10 +15,11 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
           return `${days} day${days > 1 ? 's' : ''}`;
         }
       }
-      const [contenttype,setcontenttype]=useState('video')
+      const [contenttype,setcontenttype]=useState(content)
+      const [isclicked,setisclicked]=useState(false)
   return (
     <>
-    <div className='flex justify-between border-t border-t-gray-500 pt-4'>
+    <div className='flex justify-between  pt-4'>
     <div className='flex items-center gap-x-1'>
       <div className='h-10 w-10 rounded-full overflow-hidden'>
         <img src={userimg} alt='story' className='w-full h-full object-cover' />
@@ -37,13 +38,20 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
         <button className='rotate-90 mr-5 font-bold text-[20px]'>⫶</button>
       </div>
       </div>
-      {contenttype =='vide' ?
+      {contenttype =='video' ?
       <div className='px-1 py-2 h-[660px] overflow-hidden '>
       <video src="vdo.mp4" autoplay loop controls className='h-full w-full'></video>
-      </div> : ''}
-      <div>
-        
-      </div>
+      </div> : <div className='px-1 py-2 h-[660px] overflow-hidden'>
+        <img src="photo.jpeg" alt=""  className='h-full w-full object-cover'/>
+      </div>}
+      <div className='flex gap-x-3 pl-1'>
+      <button className={`text-4xl hover:opacity-70 hover:scale-105 ${isclicked ? 'text-red-500':'text-gray-600'} `} onClick={()=>setisclicked(!isclicked)}>{
+            isclicked ? '♥':'♡'}</button>
+            <button className='text-2xl font-bold hover:opacity-80 hover:scale-105'>🗨️</button>
+           <button className='text-2xl  font-bold hover:opacity-50 hover:scale-105'>➤</button>
+            </div>
+      
+      
     </>
   )
 }

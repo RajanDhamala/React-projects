@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Storylogo from '../Stories/Storylogo'
+import UserPost from './UserPost'
 
 function Feed() {
     const[isclicked,setisclicked]=useState()
@@ -36,6 +37,13 @@ function Feed() {
                 <Storylogo imgsrc='https://r2.starryai.com/results/1010278294/420e067f-8eaf-4229-af2d-fd6630cda10a.webp' username='Barry_hales' visiblty={true}/>
                 <Storylogo imgsrc='https://xsgames.co/randomusers/assets/avatars/male/46.jpg' username='Richard_haster' visiblty={false}/>
                 
+    </div>
+    <div>
+      <UserPost content='photo'/>
+      <UserPost />
+      <UserPost/>
+      <UserPost content='photo'/>
+
     </div>
     </>
   )
