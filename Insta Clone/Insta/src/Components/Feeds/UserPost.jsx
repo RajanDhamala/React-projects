@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 
-function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s',username='tinku_minku',time='10',content='video',likecount='96',commentcount=9 }) {
+function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s',username='tinku_minku',time='10',content='video',likecount='96',commentcount=9,status='hello frans kyese ho' }) {
     function convotime(time) {
         if (time < 60) {
           return `${time} sec`;
@@ -17,6 +17,7 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
       }
       const [contenttype,setcontenttype]=useState(content)
       const [isclicked,setisclicked]=useState(false)
+      const post=useRef(null)
   return (
     <>
     <div className='flex justify-between  pt-4'>
@@ -55,13 +56,15 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
             </div>
             </div>
             </div>
-
-
             <div className='px-2 mt-1'>
               <h1>{likecount} likes</h1>
-              <p>View all {commentcount} comments</p>
-              <div>
-              <input type="text" className='bg-white focus:outline-none w-96 ' placeholder='Add . comment..' />
+              <h1 className='text-md opacity-95'>{status}</h1>
+              <p className='text-gray-500'>View all {commentcount} comments</p>
+              <div className='flex'>
+              <input type="comment" className=' focus:outline-none w-[440px] ' placeholder='Add comment..' onChange={(e)=>{ e.target.value.length >0 ? post.current.classList.remove('hidden') : ''
+              }} />
+              <button className='text-sm text-blue-500 focus:outline-none hidden' ref={post}>post</button>
+              <button className=''>😊</button>
               </div>
             </div>
             

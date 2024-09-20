@@ -39,10 +39,11 @@ function Feed() {
                 
     </div>
     <div>
-      <UserPost content='photo' likecount='600' commentcount='140'/>
-      <UserPost likecount='46' commentcount='12' />
-      <UserPost likecount='400' commentcount='23'/>
-      <UserPost content='photo' likecount='122' commentcount='94'/>
+    <UserPost content='photo' likecount='600' commentcount='140' status="Morning views that never get old! 🌄" />
+    <UserPost likecount='46' commentcount='12' status="Feeling productive today! 💻" />
+    <UserPost likecount='400' commentcount='23' status="Big things coming soon! 🚀" />
+    <UserPost content='photo' likecount='122' commentcount='94' status="Adventure vibes all weekend! 🌍" />
+
 
     </div>
     </>
