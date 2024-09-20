@@ -29,7 +29,7 @@ function Feed() {
     </div>
     <div className='flex overflow-x-hidden mx-3'>
                 <Storylogo/>
-                <Storylogo imgsrc='https://r2.starryai.com/results/240758348/61b45728-2ff1-4197-aef8-b1d372e453b4.webp' username='Starr_yai' visiblty={true}/>
+                <Storylogo imgsrc='https://r2.starryai.com/results/240758348/61b45728-2ff1-4197-aef8-b1d372e453b4.webp' username='Starr_yai' visiblty={true} />
                 <Storylogo imgsrc='https://r2.starryai.com/results/1010278294/420e067f-8eaf-4229-af2d-fd6630cda10a.webp' username='Barry_hales' visiblty={true}/>
                 <Storylogo imgsrc='https://xsgames.co/randomusers/assets/avatars/male/46.jpg' username='Richard_haster' visiblty={false}/>
                 <Storylogo/>
@@ -39,10 +39,10 @@ function Feed() {
                 
     </div>
     <div>
-      <UserPost content='photo'/>
-      <UserPost />
-      <UserPost/>
-      <UserPost content='photo'/>
+      <UserPost content='photo' likecount='600' commentcount='140'/>
+      <UserPost likecount='46' commentcount='12' />
+      <UserPost likecount='400' commentcount='23'/>
+      <UserPost content='photo' likecount='122' commentcount='94'/>
 
     </div>
     </>

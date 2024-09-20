@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s',username='tinku_minku',time='10',content='video' }) {
+function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgWkA3X9cdGn3tggpvy_hnWe0QmRZW-DjwHw&s',username='tinku_minku',time='10',content='video',likecount='96',commentcount=9 }) {
     function convotime(time) {
         if (time < 60) {
           return `${time} sec`;
@@ -45,11 +45,26 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
         <img src="photo.jpeg" alt=""  className='h-full w-full object-cover'/>
       </div>}
       <div className='flex gap-x-3 pl-1'>
-      <button className={`text-4xl hover:opacity-70 hover:scale-105 ${isclicked ? 'text-red-500':'text-gray-600'} `} onClick={()=>setisclicked(!isclicked)}>{
+      <button className={`text-4xl hover:opacity-70 hover:scale-105 ${isclicked ? 'text-red-500':'text-gray-600'} `} onClick={(e)=>setisclicked(!isclicked)}>{
             isclicked ? '♥':'♡'}</button>
             <button className='text-2xl font-bold hover:opacity-80 hover:scale-105'>🗨️</button>
            <button className='text-2xl  font-bold hover:opacity-50 hover:scale-105'>➤</button>
+    <div className='absolute flex justify-end w-full pr-4 mt-1.5 -z-50'>
+           <div className='h-5 w-5 overflow-hidden '>
+              <img src="save.png" alt="" className='h-full w-full' />
             </div>
+            </div>
+            </div>
+
+
+            <div className='px-2 mt-1'>
+              <h1>{likecount} likes</h1>
+              <p>View all {commentcount} comments</p>
+              <div>
+              <input type="text" className='bg-white focus:outline-none w-96 ' placeholder='Add . comment..' />
+              </div>
+            </div>
+            
       
       
     </>
