@@ -40,7 +40,7 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
       </div>
       </div>
       {contenttype =='video' ?
-      <div className='px-1 py-2 h-[660px] overflow-hidden '>
+      <div className='px- py-2 h-[660px] overflow-hidden '>
       <video src="vdo.mp4" autoplay loop controls className='h-full w-full'></video>
       </div> : <div className='px-1 py-2 h-[660px] overflow-hidden'>
         <img src="photo.jpeg" alt=""  className='h-full w-full object-cover'/>

@@ -18,7 +18,7 @@ function Feed() {
                 <i class="fal fa-search"></i>
                 <input type="search" placeholder='Search' className='bg-gray-200 focus:outline-none py-1 pl-6' onClick={(e)=>document.querySelector('.search').classList.toggle('hidden')} />
             </div>
-            <button className='text-4xl text-black' onClick={()=>setisclicked(!isclicked)}>{
+            <button className='text-3xl text-black ml-1' onClick={()=>setisclicked(!isclicked)}>{
             isclicked ? '♥':'♡'}</button>
             </div>
             
@@ -27,7 +27,7 @@ function Feed() {
 
             </div>
     </div>
-    <div className='flex overflow-x-hidden mx-3'>
+    <div className='flex overflow-x-hidden'>
                 <Storylogo/>
                 <Storylogo imgsrc='https://r2.starryai.com/results/240758348/61b45728-2ff1-4197-aef8-b1d372e453b4.webp' username='Starr_yai' visiblty={true} />
                 <Storylogo imgsrc='https://r2.starryai.com/results/1010278294/420e067f-8eaf-4229-af2d-fd6630cda10a.webp' username='Barry_hales' visiblty={true}/>
@@ -38,7 +38,7 @@ function Feed() {
                 <Storylogo imgsrc='https://xsgames.co/randomusers/assets/avatars/male/46.jpg' username='Richard_haster' visiblty={false}/>
                 
     </div>
-    <div>
+    <div className='px-2'>
     <UserPost content='photo' likecount='600' commentcount='140' status="Morning views that never get old! 🌄" />
     <UserPost likecount='46' commentcount='12' status="Feeling productive today! 💻" />
     <UserPost likecount='400' commentcount='23' status="Big things coming soon! 🚀" />
