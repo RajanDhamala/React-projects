@@ -30,8 +30,8 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
         <p className='text-xs font-semibold text-gray-500'>Orginal audio</p>
       </div>
       <div className='flex relative mb-3.5'>
-        <h1 className='text-sm font-bold text-gray-500'>.</h1>
-        <p className='text-sm'>{convotime(time) +' ago'}</p>
+        <h1 className='text-sm font-bold text-gray-500 opacity-70'>.</h1>
+        <p className='text-sm text-gray-500'>{convotime(time) +' ago'}</p>
       </div>
       </div>
 
@@ -48,7 +48,7 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
       <div className='flex gap-x-3 pl-1'>
       <button className={`text-4xl hover:opacity-70 hover:scale-105 ${isclicked ? 'text-red-500':'text-gray-600'} `} onClick={(e)=>setisclicked(!isclicked)}>{
             isclicked ? '♥':'♡'}</button>
-            <button className='text-2xl font-bold hover:opacity-80 hover:scale-105'>🗨️</button>
+            <button className='text-2xl font-bold hover:opacity-80 hover:scale-105'>💬</button>
            <button className='text-2xl  font-bold hover:opacity-50 hover:scale-105'>➤</button>
     <div className='absolute flex justify-end w-full pr-4 mt-1.5 -z-50'>
            <div className='h-5 w-5 overflow-hidden '>
@@ -63,7 +63,7 @@ function UserPost({userimg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9
               <div className='flex'>
               <input type="comment" className=' focus:outline-none w-[440px] ' placeholder='Add comment..' onChange={(e)=>{ e.target.value.length >0 ? post.current.classList.remove('hidden') : ''
               }} />
-              <button className='text-sm text-blue-500 focus:outline-none hidden' ref={post}>post</button>
+              <button className='text-sm text-blue-500 focus:outline-none hidden' ref={post}onClick={(e)=>alert("comment added")}>post</button>
               <button className=''>😊</button>
               </div>
             </div>
